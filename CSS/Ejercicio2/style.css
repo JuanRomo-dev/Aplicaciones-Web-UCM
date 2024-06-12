@@ -1,0 +1,95 @@
+header {
+    background-color: #b71234;
+    text-align: center;
+    height: 7em;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+}
+
+h1 {
+   color: #bfbfbf;
+   font-weight: bold;
+   font-size: 3em;
+}
+
+.navbar {
+    display: flex;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    gap: 10px;
+}
+
+.opt {
+    background-color: black;
+    padding: 10px;
+    color: white;
+}
+
+.cabec {
+    text-align: center;
+    background-color: #d3d3d3;
+    padding: 10px;
+}
+
+.cafet {
+    padding: 15px;
+}
+
+.day {
+    background-color: #d3d3d3;
+}
+
+.breakfast {
+    background-color: #daa520;
+}
+
+.breakfastdays {
+    background-color: #ffd700;
+}
+
+.break {
+    background-color: #da70d6;
+}
+
+.breakdays {
+       background-color: #dda0dd;
+}
+
+.lunch {
+    background-color: #9acd32;
+}
+
+.lunchdays {
+    background-color: #adff2f;
+}
+
+.consult {
+    display: flex;
+    align-items: center;
+}
+
+.rojo {
+    color: red;
+    font-weight: bold;
+}
+
+.resaltado {
+    background-color: lightgray;
+}
+
+#tc {
+    font-style: italic;
+}
+
+td {
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align: center;
+}
+
+img {
+    background-color: black;
+}
