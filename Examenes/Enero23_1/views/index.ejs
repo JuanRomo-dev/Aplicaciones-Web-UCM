@@ -1,28 +1,29 @@
 <!DOCTYPE html>
-<html>
+<html> 
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ejercicio 1</title>
     <link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
 </head>
 <body>
-    <header class="container-fluid " style="background-color: lightgray; padding-top: 10px; padding-bottom: 10px;">
-        <div class="row justify-content-between" style="padding-left: 10px; padding-right: 10px">
+    <header class="container-fluid" style="background-color: lightgray; padding-top: 10px; padding-bottom: 10px;">
+        <div class="row justify-content-between" id="cabecera" style="padding-left: 10px; padding-right: 10px">
         <img src="/images/logos/ucm_logo_header.png" >
         <h1 class="font-weight-bold" style="padding-top: 15px;">Título de la página</h1>
-        <button class="" style="height: 30px;">Configurar página</button>
+        <button class="btn-secondary" id="configur" style="height: 30px;">Configurar página</button>
     </div>
     </header>
-    <nav style="background-color: rgba(0, 0, 0, 0.801);" >
+    <nav id="navbar" style="background-color: rgba(0, 0, 0, 0.801);" >
         <div class="container-fluid row" class="padding-top: 20px; padding-bottom: 20px; ">
-            <a style="color: white; padding-right: 15px; padding-left:10px; padding-top: 10px; padding-bottom: 10px;">Inicio</a>
-            <a style="color: white; padding-right: 15px; padding-top: 10px; padding-bottom: 10px;">Acerca de</a>
-            <a style="color: white; padding-right: 15px; padding-top: 10px; padding-bottom: 10px;">Contacto</a>
+            <a href="#" class="links" style="color: white; padding-right: 15px; padding-left:10px; padding-top: 10px; padding-bottom: 10px;">Inicio</a>
+            <a href="#" class="links" style="color: white; padding-right: 15px; padding-top: 10px; padding-bottom: 10px;">Acerca de</a>
+            <a href="#" class="links" style="color: white; padding-right: 15px; padding-top: 10px; padding-bottom: 10px;">Contacto</a>
         </div>
     </nav>
     <section style="padding: 20px;">
-        <div class="container-fluid" style="background-color: rgba(224, 222, 222, 0.863); padding: 20px;">
+        <div class="container-fluid" id="section1" style="background-color: rgba(224, 222, 222, 0.863); padding: 20px;">
             <h2>Sección 1</h2>
             <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor congue massa. Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna.
                 Nunc viverra imperdiet enim. Fusce est. Vivamus a tellus.
@@ -33,7 +34,7 @@
         </div>
     </section>
     <section style="padding: 20px;">
-        <div class="container-fluid" style="background-color: rgba(224, 222, 222, 0.863); padding: 20px;">
+        <div class="container-fluid" id="section2" style="background-color: rgba(224, 222, 222, 0.863); padding: 20px;">
             <h2>Sección 2</h2>
             <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor congue massa. Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna.
                 Nunc viverra imperdiet enim. Fusce est. Vivamus a tellus.
@@ -44,23 +45,119 @@
         </div>
     </section>
     <footer>
-        <div class="container-fluid" style="background-color: rgba(0, 0, 0, 0.801); padding-top: 10px; padding-bottom: 10px;">
+        <div class="container-fluid" id="pie" style="background-color: rgba(0, 0, 0, 0.801); padding-top: 25px; padding-bottom: 10px;">
             <div class="row justify-content-between" style="padding-left: 10px; padding-right: 10px">
-                <div class="col">
-                    <p style="color: white">Inicio</p>
-                    <p style="color: white">Acerca de</p>
-                    <p style="color: white">Contacto</p>
+                <div class="col-auto" style="margin-left: 15px; display:flex; flex-direction: column;">
+                    <a href="#" style="color: white; margin-top: 5px;">Inicio</a>
+                    <a href="#" style="color: white; margin-top: 5px;">Acerca de</a>
+                    <a href="#"style="color: white; margin-top: 5px;">Contacto</a>
                 </div>
-                <div class="col">
-                    <img src="/images/logos/ucm_logo_footer.png">
-                    <p>C/Prof José García Santesmases</p>
-                    <p>28040 - Madrid</p>
-                    <p>Tlfn 91 394 75 01</p>
-                    <p>Fax 91 394 75 01</p>
+                <div class="col-auto">
+                    <img src="/images/logos/ucm_logo_footer.png" style="margin-right: 10px;">
+                    <p style="color: white">C/Prof José García Santesmases, 9</p>
+                    <p style="color: white">28040 - Madrid</p>
+                    <p style="color: white">Tlfn 91 394 75 01</p>
+                    <p style="color: white">Fax 91 394 75 10</p>
                 </div>
             </div>
         </div>
     </footer>
+
+    <!-- Modal -->
+     <div class="modal" id="configModal">
+        <div class="modal-dialog  modal-dialog-scrollable" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">
+                       Configurador de estilos 
+                    </h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <form id="configForm">
+                            <div class="form-group row">
+                                <label for="fontSize" class="col-6">
+                                    Tamaño de la fuente:
+                                </label>
+                                <input type="number" id="fontSize" class="form-control col-6" min="10" max="50" value="16">
+                            </div>
+                            <div class="form-group row">
+                                <label for="fontColor" class="col-6">
+                                    Color de la fuente:
+                                </label>
+                                <input type="color" id="fontColor" class="form-control col-6" value="#000000">
+                            </div>
+                            <div class="form-group row">
+                                <label for="bckgrndColor" class="col-6">
+                                    Color de fondo de las secciones:
+                                </label>
+                                <input type="color" id="bckgrndColor" class="form-control col-6" value="#000000">
+                            </div>
+                            <div class="form-group row">
+                                <label for="bckgrndColorSec1" class="col-6">
+                                    Color de la sección 1:
+                                </label>
+                                <input type="color" id="bckgrndColorSec1" class="form-control col-6" value="#000000">
+                            </div>
+                            <div class="form-group row">
+                                <label for="bckgrndColorSec2" class="col-6">
+                                    Color de la sección 2:
+                                </label>
+                                <input type="color" id="bckgrndColorSec2" class="form-control col-6" value="#000000">
+                            </div>
+                            <div class="form-group row">
+                                <label for="bckgrndColorHead" class="col-6">
+                                    Color de fondo cabecera:
+                                </label>
+                                <input type="color" id="bckgrndColorHead" class="form-control col-6" value="#000000">
+                            </div>
+                            <div class="form-group row">
+                                <label for="bckgrndColorFooter" class="col-6">
+                                    Color de fondo del footer:
+                                </label>
+                                <input type="color" id="bckgrndColorFooter" class="form-control col-6" value="#000000">
+                            </div>
+                            <div class="form-group row">
+                                <label for="linkColor" class="col-6">
+                                    Color de fondo de los enlaces:
+                                </label>
+                                <input type="color" id="linkColor" class="form-control col-6" value="#000000">
+                            </div>
+                            <div class="form-check row">
+                                <label class="form-check-label col-6" for="underlineLinks">
+                                    Subrayar enlaces
+                                </label>
+                                <input type="checkbox" id="underlineLinks" class="form-check-input col-6"   >
+                            </div>
+                            <div class="form-group row">
+                                <label for="colorNavbar" class="col-6">
+                                    Color barra de navegación:
+                                </label>
+                                <input type="color" id="colorNavbar" class="form-control col-6" value="#000000">
+                            </div>
+                            <div class="form-group row">
+                                <label for="colorLinksNav" class="col-6">
+                                    Color enlaces barra de navegación:
+                                </label>
+                                <input type="color" id="colorLinksNav" class="form-control col-6" value="#000000">
+                            </div>
+                            <div class="form-check row">
+                                <label class="form-check-label col-6" for="underlineNavLinks">
+                                    Subrayado enlaces barra navegación:
+                                </label>
+                                <input type="checkbox" id="underlineNavLinks" class="form-check-input col-6">
+                                
+                            </div>
+                            <button type="submit" class="btn btn-primary">Aplicar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+     </div>
+
+    <script src="/javascripts/jquery.min.js"></script>
+    <script src="/javascripts/bootstrap.min.js"></script>
+    <script src="/javascripts/script.js"></script>
 </body>
 </html>
 

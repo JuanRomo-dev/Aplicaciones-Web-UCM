@@ -3,3 +3,8 @@ body {
   flex-direction: column;
   min-height: 100vh;
 }
+
+.modal-body {
+  max-height: calc(100vh - 200px);
+  overflow-y: auto;
+}
