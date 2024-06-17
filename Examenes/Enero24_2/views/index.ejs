@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
+    <link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
+</head>
+<body>
+
+    <section class="container-fluid justify-content-center">
+        <h1>Operaciones</h1>
+        <div class="d-flex justify-content-center row" style="margin-top: 40px;">
+            <div class="container-fluid  col-6">
+                <h3 style="margin-right: 25px;">Agenda en formato JSON</h3>
+                <button id="mostrarAgendaBtn" style="height: 50px">Mostrar agenda</button>
+                <div id="agendaJson" style="white-space: pre-wrap;"></div>
+            </div>
+            <div class="container-fluid col-6 ">
+                <h3>Obtener un objeto a partir de su índice</h3>
+                <form class="row" id="objetoForm">
+                    <div class="form-group " style="margin-top: 10px; margin-right: 20px;">
+                        <label style="margin-right: 15px;">Índice:</label>
+                        <input type="text" id="indice">
+                    </div>
+                    <button type="submit" style="height: 50px">Obtener objeto</button>
+                </form>
+                <div id="objeto"></div>
+            </div>
+        </div>
+        <div class="d-flex justify-content-center row" style="margin-top: 40px;">
+            <div class="container-fluid col-4">
+                <h3>Añadir un objeto</h3>
+                <form id="addForm" style="margin-top:20px">
+                    <div class="form-group">
+                        <label>id:</label>
+                        <input type="text" id="identidad">
+                    </div>
+                    <div class="form-group">
+                        <label>Nombre:</label>
+                        <input type="text" id="nombre">
+                    </div>
+                    <div class="form-group">
+                        <label>Teléfono casa:</label>
+                        <input type="text" id="telCasa">
+                    </div>
+                    <div class="form-group">
+                        <label>Teléfono movil:</label>
+                        <input type="text" id="telMovil">
+                    </div>
+                    <div class="form-group">
+                        <label>Teléfono oficina:</label>
+                        <input type="text" id="telOfi">
+                    </div>
+                    <button type="submit">Añadir objeto</button>
+                </form>
+            </div>
+            <div class="container-fluid col-4">
+                <h3>Eliminar un objeto</h3>
+                <form id="deleteForm">
+                    <div class="form-group">
+                        <label>
+                            id:
+                        </label>
+                        <input type="text" id="deleteId">
+                    </div>
+                    <button type="submit">Eliminar objeto</button>
+                </form>
+            </div>
+            <div class="container-fluid col-4">
+                <h3>Actualizar un objeto</h3>
+                <form id="updateForm">
+                    <div class="form-group">
+                        <label>Índice:</label>
+                        <input type="text" id="updateIndex">
+                    </div>
+                    <div class="form-group">
+                        <label>id:</label>
+                        <input type="text" id="updateId">
+                    </div>
+                    <div class="form-group">
+                        <label>Nombre:</label>
+                        <input type="text" id="updateNombre">
+                    </div>
+                    <div class="form-group">
+                        <label>Teléfono casa:</label>
+                        <input type="text" id="updateCasa">
+                    </div>
+                    <div class="form-group">
+                        <label>Teléfono movil:</label>
+                        <input type="text" id="updateMovil">
+                    </div>
+                    <div class="form-group">
+                        <label>Teléfono oficina:</label>
+                        <input type="text" id="updateOfi">
+                    </div>
+                    <button type="submit">Actualizar objeto</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <script src="/javascripts/jquery.min.js"></script>
+    <script src="/javascripts/bootstrap.min.js"></script>
+    <script src="/javascripts/script.js"></script>
+</body>
+</html>
