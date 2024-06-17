@@ -1,0 +1,25 @@
+body {
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+html, body {
+  height: 100%;
+}
+
+.center-screen {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100%;
+}
+
+.gap_top {
+  margin-top: 25px!important;
+}
+
+a {
+  color: #00B7FF;
+}
+
+

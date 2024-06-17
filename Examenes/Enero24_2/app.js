@@ -19,6 +19,15 @@ app.use('/', indexRouter);
 const crudUsua = require('./routes/crudUsuarios');
 app.use('/contactos', crudUsua);
 
+app.use((req, res, next) => {
+    res.status(404).send('404 - Not Found');
+});
+
+app.use((err, req, res, next) => {
+    console.error(err.stack);
+    res.status(500).send('500 - Server Error');
+  });
+
 app.listen(port, () => {
     console.log(`Server on port ${port}`);
 });
