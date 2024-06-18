@@ -10,43 +10,32 @@
 <body class="container-fluid">
     <section class="center-screen" >
         <h1>Registro Intranet</h1>
-        <form id="registerForm" class="gap_top">
-            <div class="form-group">
-                <label for="name">
-                    Nombre:
-                </label>
-                <input type="text" id="name">
-            </div>
-            <div class="form-group">
-                <label for="apellidos">
-                    Apellidos:
-                </label>
-                <input type="text" id="apellidos">
-            </div>
-            <div class="form-group">
-                <label for="email">
-                    Email:
-                </label>
-                <input type="email" id="email">
-            </div>
-            <div class="form-group">
-                <label for="pass">
-                    Contraseña:
-                </label>
-                <input type="password" id="pass">
-            </div>
-            <div class="form-group">
-                <label for="pic">
-                    Foto:
-                </label>
-                <input type="file" id="pic">
-            </div>
-            <button type="submit">Registrarse</button>
-        </form>
+            <form id="registerForm" class="gap_top" action="/registro" method="POST" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" class="form-control" id="nombre" name="nombre" required>
+                </div>
+                <div class="form-group">
+                    <label for="apellidos">Apellidos:</label>
+                    <input type="text" class="form-control" id="apellidos" name="apellidos" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" class="form-control" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="pass">Contraseña:</label>
+                    <input type="password" class="form-control" id="pass" name="pass" required>
+                </div>
+                <div class="form-group">
+                    <label for="pic">Foto:</label>
+                    <input type="file" class="form-control-file" id="pic" name="pic">
+                </div>
+                <button class="btn btn-primary" type="submit">Registrarse</button>
+            </form>
     </section>
 
     <script src="/javascripts/bootstrap.min.js"></script>
     <script src="/javascripts/jquery.min.js"></script>
-    <script src="/javascripts/script.js"></script>
 </body>
 </html>

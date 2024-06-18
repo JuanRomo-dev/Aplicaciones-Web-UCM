@@ -8,28 +8,25 @@ const port = 3000;
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
 
-const routeIndex = require('./routes/index');
-app.use('/', routeIndex);
+const indexRouter = require('./routes/index');
+const registroRouter = require('./routes/registro');
+const usuarioRouter = require('./routes/usuarios');
 
-const routeRegistro = require('./routes/registro');
-app.use('/registro', routeRegistro);
+app.use('/', indexRouter);
+app.use('/registro', registroRouter);
+app.use('/usuarios', usuarioRouter);
 
-const routeUsuarios = require('./routes/usuarios');
-app.use('/usuarios', routeUsuarios);
-
-app.use((req, res, next) => {
-    res.status(404).send('404 - Not Found');
+app.use(function(req, res, next) {
+    res.status(404).render('error', { message: 'Página no encontrada' });
 });
 
-app.use((err, req, res, next) => {
+app.use(function(err, req, res, next) {
     console.error(err.stack);
-    res.status(500).send('500 - Server Error');
+    res.status(500).render('error', { message: 'Error!' });
 });
 
-app.listen(port, () => {
-    console.log(`Server on ${port}`);
-})
+app.listen(port, () => console.log(`Server en http://localhost:${port}`));

@@ -1,41 +1,34 @@
 const express = require('express');
 const router = express.Router();
+const multer = require('multer');
+const usuarios = require('../data/usuariosData');
 
-let usuarios = [];
-
-function validarEmail(req, res, next) {
-    const { email } = req.body;
-    if (!email || !email.endsWith('@ucm.es')) {
-        return res.status(400).json({ msg: 'El correo electrónico debe ser de dominio ucm.es' });
+const storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+        cb(null, 'public/uploads/') 
+    },
+    filename: function (req, file, cb) {
+        cb(null, file.originalname) 
     }
-    next();
-}
+});
+
+const upload = multer({ storage: storage });
 
 router.get('/', (req, res) => {
-    res.render('registro', {title: 'Ejercicio 3'});
-})
+    res.render('registro', { title: 'Ejercicio 3' });
+});
 
-router.post('/', validarEmail, (req, res) => {
-    const { nombre, apellidos, email, contraseña, foto } = req.body;
+router.post('/', upload.single('pic'), (req, res) => {
+    const { nombre, apellidos, email, pass } = req.body;
+    const pic = req.file ? req.file.filename : 'noUser.png';
 
-    if (!nombre || !apellidos || !email || !contraseña) {
-        res.status(400).json({msg: 'Faltan datos'});
+    if (!email.endsWith('@ucm.es')) {
+        return res.status(400).send('El correo debe ser de dominio @ucm.es');
     }
 
-    const nuevoUsuario = { 
-        id: usuarios.length + 1,
-        nombre: nombre,
-        apellidos: apellidos,
-        email: email,
-        contraseña: contraseña,
-        foto: foto || 'noUser.png'
-    }
+    usuarios.push({ nombre, apellidos, email, pass, pic });
 
-    console.log('sdffsfs', nuevoUsuario);
-
-    usuarios.push(nuevoUsuario);
-
-    res.status(200).json({msg: 'Usuario registrado satisfactoriamente'})
+    res.redirect('/usuarios');
 });
 
 module.exports = router;

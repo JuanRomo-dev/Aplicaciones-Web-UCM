@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Usuarios Registrados</title>
+    <link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
+</head>
+<body class="container-fluid">
+    <section>
+        <h1>Usuarios Registrados</h1>
+        <% if (usuarios.length > 0) { %>
+            <ul class="list-group">
+                <% usuarios.forEach(usuario => { %>
+                    <li class="list-group-item">
+                        <strong>Nombre:</strong> <%= usuario.nombre %><br>
+                        <strong>Apellidos:</strong> <%= usuario.apellidos %><br>
+                        <strong>Correo:</strong> <%= usuario.email %><br>
+                        <strong>Foto:</strong> <img src="/uploads/<%= usuario.pic %>" alt="Foto de <%= usuario.nombre %>" width="100">
+                    </li>
+                <% }) %>
+            </ul>
+        <% } else { %>
+            <p>No hay usuarios registrados.</p>
+        <% } %>
+    </section>
+</body>
+</html>
